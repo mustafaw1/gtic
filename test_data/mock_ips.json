@@ -1,0 +1,20 @@
+{
+  "generated_at": "2025-10-30T11:49:53.499128+00:00",
+  "total_ips": 3,
+  "total_domain": 0,
+  "ip_data": [
+    {
+      "ip_address": "8.8.8.8",
+      "log_id": "dns_001"
+    },
+    {
+      "ip_address": "1.1.1.1",
+      "log_id": "dns_002"
+    },
+    {
+      "ip_address": "192.168.1.1",
+      "log_id": "local_001"
+    }
+  ],
+  "domains_data": []
+}

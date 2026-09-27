@@ -1,0 +1,22 @@
+[Unit]
+Description=GTIC OTX Ingestion Service
+After=network.target postgresql.service redis.service
+Wants=postgresql.service redis.service
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/gtic/otx_service
+Environment=PATH=/opt/gtic/venv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin
+Environment=PYTHONPATH=/opt/gtic
+EnvironmentFile=-/opt/gtic/.env
+Environment=SERVICE_PORT=8003
+ExecStart=/opt/gtic/venv/bin/python run.py
+Restart=always
+RestartSec=10
+User=gtic
+Group=gtic
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target

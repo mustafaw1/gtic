@@ -1,0 +1,58 @@
+# Log files
+logs/
+*.log
+
+# API test responses
+api_response_*.json
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Virtual Environment
+gtic_env/
+venv/
+env/
+ENV/
+environment/*/bin/
+environment/*/lib/
+environment/*/include/
+environment/*/pyvenv.cfg
+
+# Database dumps
+*.backup
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+

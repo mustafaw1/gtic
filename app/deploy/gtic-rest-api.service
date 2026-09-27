@@ -1,0 +1,21 @@
+[Unit]
+Description=GTIC REST API
+After=network.target postgresql.service redis.service lookup-service.service
+Requires=lookup-service.service
+
+[Service]
+Type=simple
+WorkingDirectory=/home/gtic-admin/gtic-restapi
+Environment=PATH=/home/gtic-admin/gtic-restapi/gtic_env/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin
+Environment=PYTHONPATH=/home/gtic-admin/gtic-restapi
+EnvironmentFile=-/home/gtic-admin/gtic-restapi/.env
+ExecStart=/home/gtic-admin/gtic-restapi/gtic_env/bin/uvicorn app.main:app --host 0.0.0.0 --port 8000
+Restart=always
+RestartSec=5
+User=gtic
+Group=gtic
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target

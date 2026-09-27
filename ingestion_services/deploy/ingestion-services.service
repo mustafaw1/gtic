@@ -1,0 +1,21 @@
+[Unit]
+Description=GTIC Ingestion Services (OTX & Malware Bazaar)
+After=network.target postgresql.service redis.service
+Wants=postgresql.service redis.service
+
+[Service]
+Type=simple
+WorkingDirectory=/home/gtic-admin/gtic-restapi/ingestion_services
+Environment=PATH=/home/gtic-admin/gtic-restapi/gtic_env/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin
+Environment=PYTHONPATH=/home/gtic-admin/gtic-restapi
+EnvironmentFile=-/home/gtic-admin/gtic-restapi/.env
+ExecStart=/home/gtic-admin/gtic-restapi/gtic_env/bin/python run.py
+Restart=always
+RestartSec=10
+User=gtic
+Group=gtic
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
